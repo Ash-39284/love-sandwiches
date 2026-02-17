@@ -141,6 +141,15 @@ def calculate_stock_data(data):
 
     return new_stock_data 
 
+def get_stock_values(data):
+    headings = SHEET.worksheet("sales").get_all_values()[0]
+    print("Make the following numbers of sandwiches for next market:\n")
+    
+    return {heading: data for heading, data in zip(headings, data)}
+    
+stock_values = get_stock_values(stock_data)
+print(stock_values)
+
 def main():
     """
     Run all program functions
@@ -157,7 +166,3 @@ def main():
 
 print("Welcome to Love Sandwiches Data Automation")
 main()
-
-
-
-
